@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaghetti Carbonara - Food Recipe</title>
+    <link rel="stylesheet" href="/static/adminapp/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ff6be4;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .recipe-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .recipe-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .recipe-details {
+            margin-top: 1.5rem;
+        }
+        .ingredients, .instructions {
+            margin-top: 1rem;
+        }
+        .ingredients ul, .instructions ol {
+            margin: 0;
+            padding-left: 1.25rem;
+        }
+        .meta {
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Food Recipe</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/recipes/">Recipes</a></li>
+            <li><a href="/categories/">Categories</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="recipe-header">
+            <h2>Spaghetti Carbonara</h2>
+            <p class="meta">Views: 12,345 | Category: Pasta</p>
+        </div>
+        <img src="https://via.placeholder.com/800x400?text=Spaghetti+Carbonara" alt="Spaghetti Carbonara" class="recipe-image">
+        <div class="recipe-details">
+            <div class="ingredients">
+                <h3>Ingredients</h3>
+                <ul>
+                    
+                    <li>200g spaghetti</li>
+                    <li>100g pancetta</li>
+                    <li>2 large eggs</li>
+                    <li>50g pecorino cheese, grated</li>
+                    <li>50g parmesan, grated</li>
+                    <li>2 cloves garlic, peeled and chopped</li>
+                    <li>Salt and black pepper to taste
+                    
+                </ul>
+            </div>
+            <div class="instructions">
+                <h3>Instructions</h3>
+                <ol>
+                    
+                    <li>Cook the spaghetti in a large pot of boiling salted water until al dente.</li>
+                    <li>Fry the pancetta with the garlic until crisp.</li>
+                    <li>Beat the eggs in a bowl, then mix in the cheeses.</li>
+                    <li>Drain the pasta and return to the pot.</li>
+                    <li>Quickly mix in the egg and cheese mixture, stirring constantly.</li>
+                    <li>Season with salt and pepper, serve immediately.</li>
+                    
+                </ol>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

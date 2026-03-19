@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Food Recipe</title>
+    <link rel="stylesheet" href="/static/adminapp/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color: #f4f4f4;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 1rem 0;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+        }
+        .main {
+            flex: 1;
+            padding: 2rem;
+        }
+        .header {
+            background-color: white;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+      }
+        .stat-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex: 1;
+            text-align: center;
+        }
+        .stat-card h3 {
+            margin: 0;
+            color: #ff6bf5;
+        }
+        .stat-card p {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+        }
+        .recent-recipes {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .recent-recipes h3 {
+            margin-top: 0;
+        }
+        .recipe-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .recipe-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Users</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="header">
+            <h1>Welcome to Admin Dashboard</h1>
+            <p>Manage your food recipe website</p>
+        </div>
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Total Recipes</h3>
+                <p>150</p>
+            </div>
+            <div class="stat-card">
+                <h3>Active Users</h3>
+                <p>1,250</p>
+            </div>
+            <div class="stat-card">
+                <h3>Categories</h3>
+                <p>25</p>
+            </div>
+            <div class="stat-card">
+                <h3>Views Today</h3>
+                <p>5,430</p>
+            </div>
+        </div>
+        <div class="recent-recipes">
+            <h3>Recent Recipes</h3>
+            <div class="recipe-item">
+                <strong>Spaghetti Carbonara</strong> - Added 2 hours ago
+            </div>
+            <div class="recipe-item">
+                <strong>chilly chicken</strong> - Added 5 hours ago
+            </div>
+            <div class="recipe-item">
+                <strong>Vegetable Stir Fry</strong> - Added 1 day ago
+            </div>
+            <div class="recipe-item">
+                <strong>Chocolate Chip Cookies</strong> - Added 2 days ago
+            </div>
+        </div>
+    </div>
+</body>
+</html>

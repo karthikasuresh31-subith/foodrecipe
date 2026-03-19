@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - Food Recipe</title>
+    <link rel="stylesheet" href="/static/adminapp/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ff6bdf;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .recipe-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .recipe-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .recipe-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        .recipe-card .content {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .recipe-card h3 {
+            margin-top: 0;
+            color: #ff6b6b;
+        }
+        .recipe-card p {
+            flex: 1;
+            margin: 0.5rem 0;
+        }
+        .recipe-card a {
+            align-self: flex-start;
+            background-color: #6bff70;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #9f6bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Food Recipe</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/recipes/">Recipes</a></li>
+            <li><a href="/categories/">Categories</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>All Recipes</h2>
+        <form method="get" action="" style="margin-bottom:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+            <input type="text" name="q" placeholder="Search recipes..." value="{{ request.GET.q }}" style="flex:1; padding:0.5rem;">
+            <select name="category" style="padding:0.5rem;">
+                <option value="">All Categories</option>
+                <!-- In Django, loop categories -->
+                <option value="1">Appetizer</option>
+                <option value="2">Main Course</option>
+                <option value="3">Dessert</option>
+            </select>
+            <button type="submit" class="btn" style="margin-left:auto;">Filter</button>
+        </form>
+        <table style="width:100%; border-collapse: collapse; background-color:white;">
+            <thead>
+                <tr>
+                    <th style="padding:0.75rem; border-bottom:2px solid #ddd; text-align:left;">Dish Name</th>
+                    <th style="padding:0.75rem; border-bottom:2px solid #ddd; text-align:left;">Views</th>
+                    <th style="padding:0.75rem; border-bottom:2px solid #ddd;">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Django loop through recipes -->
+                <tr>
+                    <td style="padding:0.75rem; border-bottom:1px solid #eee;">Sample Recipe</td>
+                    <td style="padding:0.75rem; border-bottom:1px solid #eee;">1234</td>
+                    <td style="padding:0.75rem; border-bottom:1px solid #eee; text-align: center;"><a href="#" class="btn">View Details</a></td>
+                </tr>
+                <!-- repeat rows -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

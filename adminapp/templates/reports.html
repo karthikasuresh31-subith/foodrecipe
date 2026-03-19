@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Food Recipe</title>
+    <link rel="stylesheet" href="/static/adminapp/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ff6bdc;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        th {
+            border-bottom: 2px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Food Recipe</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/recipes/">Recipes</a></li>
+            <li><a href="/categories/">Categories</a></li>
+            <li><a href="/users/">Users</a></li>
+            <li><a href="/reports/">Reports</a></li>
+            <li><a href="/settings/">Settings</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Top 10 Most Viewed Recipes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>Recipe Name</th>
+                    <th>Views</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Django loop to display top recipes -->
+                <tr>
+                    <td>1</td>
+                    <td>Spaghetti Carbonara</td>
+                    <td>12,345</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Chicken Tikka</td>
+                    <td>11,789</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Beef Roast</td>
+                    <td>10,532</td>
+                </tr>
+                <!-- continue rows up to 10 -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details - Food Recipe</title>
+    <link rel="stylesheet" href="/static/adminapp/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #ff6be4;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .user-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .user-info {
+            margin-bottom: 2rem;
+        }
+        .recipe-list {
+            list-style: none;
+            padding: 0;
+        }
+        .recipe-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .recipe-item:last-child {
+            border-bottom: none;
+        }
+        .recipe-item h4 {
+            margin: 0;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Food Recipe</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/recipes/">Recipes</a></li>
+            <li><a href="/categories/">Categories</a></li>
+            <li><a href="/users/">Users</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="user-header">
+            <h2>John Doe</h2>
+            <p class="meta">Joined: January 1, 2023 | Total Recipes: 3</p>
+        </div>
+        <div class="user-info">
+            <p><strong>Email:</strong> john.doe@example.com</p>
+            <p><strong>Bio:</strong> Food lover and home chef sharing my favorite dishes.</p>
+        </div>
+        <div class="user-recipes">
+            <h3>Recipes by John Doe</h3>
+            <ul class="recipe-list">
+                <li class="recipe-item">
+                    <h4>Spaghetti Carbonara</h4>
+                    <p>Views: 12,345</p>
+                    <a href="#" class="btn">View Recipe</a>
+                </li>
+                <li class="recipe-item">
+                    <h4>Chicken Tikka Masala</h4>
+                    <p>Views: 8,912</p>
+                    <a href="#" class="btn">View Recipe</a>
+                </li>
+                <li class="recipe-item">
+                    <h4>Vegetable Stir Fry</h4>
+                    <p>Views: 5,678</p>
+                    <a href="#" class="btn">View Recipe</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
