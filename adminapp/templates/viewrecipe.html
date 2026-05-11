@@ -78,45 +78,35 @@
     </header>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/recipes/">Recipes</a></li>
-            <li><a href="/categories/">Categories</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'recipes' %}">Recipes</a></li>
+            <li><a href="{% url 'users' %}">Users</a></li>
+            <li><a href="{% url 'reports' %}">Reports</a></li>
         </ul>
     </nav>
     <div class="container">
         <div class="recipe-header">
-            <h2>Spaghetti Carbonara</h2>
-            <p class="meta">Views: 12,345 | Category: Pasta</p>
+            <h2>{{ recipe.title }}</h2>
+            <p class="meta">Views: {{ recipe.views }} | Difficulty: {{ recipe.difficulty_level }} | Cooking Time: {{ recipe.Cooking_time }} min | By: {{ creator_name }}</p>
         </div>
-        <img src="https://via.placeholder.com/800x400?text=Spaghetti+Carbonara" alt="Spaghetti Carbonara" class="recipe-image">
+        {% if image_url %}
+        <img src="{{ image_url }}" alt="{{ recipe.title }}" class="recipe-image">
+        {% endif %}
         <div class="recipe-details">
             <div class="ingredients">
                 <h3>Ingredients</h3>
                 <ul>
-                    
-                    <li>200g spaghetti</li>
-                    <li>100g pancetta</li>
-                    <li>2 large eggs</li>
-                    <li>50g pecorino cheese, grated</li>
-                    <li>50g parmesan, grated</li>
-                    <li>2 cloves garlic, peeled and chopped</li>
-                    <li>Salt and black pepper to taste
-                    
+                    {% for ing in recipe.ingredients.splitlines %}
+                    <li>{{ ing }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="instructions">
                 <h3>Instructions</h3>
                 <ol>
-                    
-                    <li>Cook the spaghetti in a large pot of boiling salted water until al dente.</li>
-                    <li>Fry the pancetta with the garlic until crisp.</li>
-                    <li>Beat the eggs in a bowl, then mix in the cheeses.</li>
-                    <li>Drain the pasta and return to the pot.</li>
-                    <li>Quickly mix in the egg and cheese mixture, stirring constantly.</li>
-                    <li>Season with salt and pepper, serve immediately.</li>
-                    
+                    {% for inst in recipe.instructions.splitlines %}
+                    <li>{{ inst }}</li>
+                    {% endfor %}
                 </ol>
             </div>
         </div>

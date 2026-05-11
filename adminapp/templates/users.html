@@ -75,12 +75,10 @@
     </header>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/recipes/">Recipes</a></li>
-            <li><a href="/categories/">Categories</a></li>
-            <li><a href="/users/">Users</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'recipes' %}">Recipes</a></li>
+            <li><a href="{% url 'users' %}">Users</a></li>
+            <li><a href="{% url 'reports' %}">Reports</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -98,16 +96,15 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Django loop through users -->
+                {% for user in users %}
                 <tr>
-                    <td>John Doe</td>
-                    <td>Active</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.is_active|yesno:"Active,Inactive" }}</td>
                     <td>
-                        <a href="#" class="btn btn-secondary">Block</a>
-                        <a href="#" class="btn">View Details</a>
+                        <a href="{% url 'viewuser' user.id %}" class="btn">View Details</a>
                     </td>
                 </tr>
-                <!-- repeat rows -->
+                {% endfor %}
             </tbody>
         </table>
     </div>

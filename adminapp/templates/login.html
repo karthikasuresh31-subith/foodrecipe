@@ -71,6 +71,13 @@
             <h1> Food Recipe</h1>
             <p>Admin Dashboard</p>
         </div>
+        {% if messages %}
+        <div class="alert alert-danger" style="color: red; text-align: center;">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
         <form method="POST">
             {% csrf_token %}
             <div class="mb-3">

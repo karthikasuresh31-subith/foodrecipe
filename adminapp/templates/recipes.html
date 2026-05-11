@@ -100,25 +100,17 @@
     </header>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/recipes/">Recipes</a></li>
-            <li><a href="/categories/">Categories</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'recipes' %}">Recipes</a></li>
+            <li><a href="{% url 'users' %}">Users</a></li>
+            <li><a href="{% url 'reports' %}">Reports</a></li>
         </ul>
     </nav>
     <div class="container">
         <h2>All Recipes</h2>
         <form method="get" action="" style="margin-bottom:1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
-            <input type="text" name="q" placeholder="Search recipes..." value="{{ request.GET.q }}" style="flex:1; padding:0.5rem;">
-            <select name="category" style="padding:0.5rem;">
-                <option value="">All Categories</option>
-                <!-- In Django, loop categories -->
-                <option value="1">Appetizer</option>
-                <option value="2">Main Course</option>
-                <option value="3">Dessert</option>
-            </select>
-            <button type="submit" class="btn" style="margin-left:auto;">Filter</button>
+            <input type="text" name="q" placeholder="Search recipes..." value="{{ search_query }}" style="flex:1; padding:0.5rem;">
+            <button type="submit" class="btn" style="margin-left:auto;">Search</button>
         </form>
         <table style="width:100%; border-collapse: collapse; background-color:white;">
             <thead>
@@ -129,13 +121,13 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Django loop through recipes -->
+                {% for recipe in recipes %}
                 <tr>
-                    <td style="padding:0.75rem; border-bottom:1px solid #eee;">Sample Recipe</td>
-                    <td style="padding:0.75rem; border-bottom:1px solid #eee;">1234</td>
-                    <td style="padding:0.75rem; border-bottom:1px solid #eee; text-align: center;"><a href="#" class="btn">View Details</a></td>
+                    <td style="padding:0.75rem; border-bottom:1px solid #eee;">{{ recipe.title }}</td>
+                    <td style="padding:0.75rem; border-bottom:1px solid #eee;">{{ recipe.views }}</td>
+                    <td style="padding:0.75rem; border-bottom:1px solid #eee; text-align: center;"><a href="{% url 'viewrecipe' recipe.id %}" class="btn">View Details</a></td>
                 </tr>
-                <!-- repeat rows -->
+                {% endfor %}
             </tbody>
         </table>
     </div>

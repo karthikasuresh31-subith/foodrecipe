@@ -76,41 +76,31 @@
     </header>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/recipes/">Recipes</a></li>
-            <li><a href="/categories/">Categories</a></li>
-            <li><a href="/users/">Users</a></li>
-            <li><a href="/about/">About</a></li>
-            <li><a href="/contact/">Contact</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'recipes' %}">Recipes</a></li>
+            <li><a href="{% url 'users' %}">Users</a></li>
+            <li><a href="{% url 'reports' %}">Reports</a></li>
         </ul>
     </nav>
     <div class="container">
         <div class="user-header">
-            <h2>John Doe</h2>
-            <p class="meta">Joined: January 1, 2023 | Total Recipes: 3</p>
+            <h2>{{ user.name }}</h2>
+            <p class="meta">Joined: {{ user.date_joined|date:"F j, Y" }} | Total Recipes: {{ recipe_count }}</p>
         </div>
         <div class="user-info">
-            <p><strong>Email:</strong> john.doe@example.com</p>
-            <p><strong>Bio:</strong> Food lover and home chef sharing my favorite dishes.</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Status:</strong> {{ user.is_active|yesno:"Active,Inactive" }}</p>
         </div>
         <div class="user-recipes">
-            <h3>Recipes by John Doe</h3>
+            <h3>Recipes by {{ user.name }}</h3>
             <ul class="recipe-list">
+                {% for recipe in user_recipes %}
                 <li class="recipe-item">
-                    <h4>Spaghetti Carbonara</h4>
-                    <p>Views: 12,345</p>
-                    <a href="#" class="btn">View Recipe</a>
+                    <h4>{{ recipe.title }}</h4>
+                    <p>Views: {{ recipe.views }}</p>
+                    <a href="{% url 'viewrecipe' recipe.id %}" class="btn">View Recipe</a>
                 </li>
-                <li class="recipe-item">
-                    <h4>Chicken Tikka Masala</h4>
-                    <p>Views: 8,912</p>
-                    <a href="#" class="btn">View Recipe</a>
-                </li>
-                <li class="recipe-item">
-                    <h4>Vegetable Stir Fry</h4>
-                    <p>Views: 5,678</p>
-                    <a href="#" class="btn">View Recipe</a>
-                </li>
+                {% endfor %}
             </ul>
         </div>
     </div>

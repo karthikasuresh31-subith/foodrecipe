@@ -89,11 +89,11 @@
     <div class="sidebar">
         <h2>Admin Panel</h2>
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Recipes</a></li>
-            <li><a href="#">Users</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'recipes' %}">Recipes</a></li>
+            <li><a href="{% url 'users' %}">Users</a></li>
             <li><a href="#">Categories</a></li>
-            <li><a href="#">Reports</a></li>
+            <li><a href="{% url 'reports' %}">Reports</a></li>
             <li><a href="#">Settings</a></li>
         </ul>
     </div>
@@ -105,35 +105,28 @@
         <div class="stats">
             <div class="stat-card">
                 <h3>Total Recipes</h3>
-                <p>150</p>
+                <p>{{ total_recipes }}</p>
             </div>
             <div class="stat-card">
                 <h3>Active Users</h3>
-                <p>1,250</p>
+                <p>{{ active_users }}</p>
             </div>
             <div class="stat-card">
                 <h3>Categories</h3>
-                <p>25</p>
+                <p>{{ categories }}</p>
             </div>
             <div class="stat-card">
-                <h3>Views Today</h3>
-                <p>5,430</p>
+                <h3>Total Views</h3>
+                <p>{{ total_views }}</p>
             </div>
         </div>
         <div class="recent-recipes">
             <h3>Recent Recipes</h3>
+            {% for recipe in recent_recipes %}
             <div class="recipe-item">
-                <strong>Spaghetti Carbonara</strong> - Added 2 hours ago
+                <strong>{{ recipe.title }}</strong> - {{ recipe.views }} views
             </div>
-            <div class="recipe-item">
-                <strong>chilly chicken</strong> - Added 5 hours ago
-            </div>
-            <div class="recipe-item">
-                <strong>Vegetable Stir Fry</strong> - Added 1 day ago
-            </div>
-            <div class="recipe-item">
-                <strong>Chocolate Chip Cookies</strong> - Added 2 days ago
-            </div>
+            {% endfor %}
         </div>
     </div>
 </body>
